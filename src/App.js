@@ -1,46 +1,13 @@
-import {
-  OrbitControls,
-  PerspectiveCamera,
-  Sphere,
-  useTexture,
-} from "@react-three/drei";
+import { OrbitControls, PerspectiveCamera } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
 import { Suspense } from "react";
 
-const Sun = (props) => (
-  <Sphere {...props}>
-    <meshBasicMaterial map={useTexture("/textures/sun/2k_sun.jpeg")} />
-  </Sphere>
-);
-
-const Earth = (props) => (
-  <Sphere {...props}>
-    <meshPhongMaterial
-      map={useTexture("/textures/earth/2k_earth_daymap.jpeg")}
-      normalMap={useTexture("/textures/earth/2k_earth_normal_map.jpeg")}
-      specularMap={useTexture("/textures/earth/2k_earth_specular_map.jpeg")}
-    />
-  </Sphere>
-);
-
-const Moon = (props) => (
-  <Sphere {...props}>
-    <meshPhongMaterial map={useTexture("/textures/moon/2k_moon.jpeg")} />
-  </Sphere>
-);
+import SolarSystem from "./components/solar-system";
 
 const Scene = () => (
   <>
     <pointLight color={0xffffff} intensity={3} />
-    <group name="solarSystem">
-      <Sun scale={[5, 5, 5]} />
-      <group name="earthOrbit" position={[10, 0, 0]}>
-        <Earth />
-        <group name="moonOrbit" position={[2, 0, 0]}>
-          <Moon scale={[0.5, 0.5, 0.5]} />
-        </group>
-      </group>
-    </group>
+    <SolarSystem />
   </>
 );
 
