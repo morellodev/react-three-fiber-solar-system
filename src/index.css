@@ -6,4 +6,9 @@
 html,
 body {
   height: 100vh;
+  background-color: #000000;
+}
+
+#root {
+  height: 100%;
 }
