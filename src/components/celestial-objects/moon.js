@@ -14,7 +14,10 @@ const Moon = (props) => {
 
   return (
     <Sphere {...props} ref={moonRef}>
-      <meshPhongMaterial map={useTexture("/textures/moon/2k_moon.jpeg")} />
+      <meshPhongMaterial
+        map={useTexture("/textures/moon/2k_moon.jpeg")}
+        shininess={0}
+      />
     </Sphere>
   );
 };
