@@ -13,7 +13,7 @@ const Earth = (props) => {
   });
 
   return (
-    <Sphere {...props} ref={earthRef}>
+    <Sphere args={[1, 64, 64]} {...props} ref={earthRef}>
       <meshPhongMaterial
         map={useTexture("/textures/earth/2k_earth_daymap.jpeg")}
         normalMap={useTexture("/textures/earth/2k_earth_normal_map.jpeg")}

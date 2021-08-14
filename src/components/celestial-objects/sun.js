@@ -13,7 +13,7 @@ const Sun = (props) => {
   });
 
   return (
-    <Sphere {...props} ref={sunRef}>
+    <Sphere args={[1, 64, 64]} {...props} ref={sunRef}>
       <meshBasicMaterial map={useTexture("/textures/sun/2k_sun.jpeg")} />
     </Sphere>
   );
