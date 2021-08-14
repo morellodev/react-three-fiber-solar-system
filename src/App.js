@@ -24,7 +24,7 @@ const Loader = () => (
 );
 
 const App = () => (
-  <Canvas camera={{ position: [0, 50, 0], fov: 40 }}>
+  <Canvas camera={{ position: [0, 0, 40], fov: 40 }}>
     <Suspense fallback={<Loader />}>
       <Scene />
     </Suspense>
