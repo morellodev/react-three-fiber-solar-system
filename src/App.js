@@ -1,4 +1,4 @@
-import { OrbitControls, PerspectiveCamera, Stars } from "@react-three/drei";
+import { Html, OrbitControls, Stars } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
 import {
   Bloom,
@@ -17,17 +17,22 @@ const Scene = () => (
   </>
 );
 
+const Loader = () => (
+  <Html center style={{ fontSize: "2rem" }}>
+    Loading...
+  </Html>
+);
+
 const App = () => (
-  <Canvas>
-    <Suspense fallback={null}>
+  <Canvas camera={{ position: [0, 50, 0], fov: 40 }}>
+    <Suspense fallback={<Loader />}>
       <Scene />
-      <PerspectiveCamera makeDefault fov={40} position={[0, 50, 0]} />
-      <OrbitControls />
-      <EffectComposer>
-        <DepthOfField focusDistance={0.1} focalLength={0.1} bokehScale={0.1} />
-        <Bloom luminanceThreshold={0} luminanceSmoothing={0.9} />
-      </EffectComposer>
     </Suspense>
+    <OrbitControls />
+    <EffectComposer>
+      <DepthOfField focusDistance={0.1} focalLength={0.1} bokehScale={0.1} />
+      <Bloom luminanceThreshold={0} luminanceSmoothing={0.9} />
+    </EffectComposer>
   </Canvas>
 );
 
