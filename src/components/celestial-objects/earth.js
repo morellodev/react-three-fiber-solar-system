@@ -15,9 +15,11 @@ const Earth = (props) => {
   return (
     <Sphere args={[1, 64, 64]} {...props} ref={earthRef}>
       <meshPhongMaterial
-        map={useTexture("/textures/earth/2k_earth_daymap.jpeg")}
-        normalMap={useTexture("/textures/earth/2k_earth_normal_map.jpeg")}
-        specularMap={useTexture("/textures/earth/2k_earth_specular_map.jpeg")}
+        {...useTexture({
+          map: "/textures/earth/2k_earth_daymap.jpeg",
+          normalMap: "/textures/earth/2k_earth_normal_map.jpeg",
+          specularMap: "/textures/earth/2k_earth_specular_map.jpeg",
+        })}
       />
     </Sphere>
   );
